@@ -1,13 +1,13 @@
 package dio.cognizant21.desafio1;
 
-public class ContaCorrente extends Conta {
+public class ContaPoupanca extends Conta {
     
-    public ContaCorrente(String titular) {
+    public ContaPoupanca(String titular) {
         super(titular);
     }
 
     public void imprimirExtrato() {
-        System.out.println("==== Extrato da Conta Corrente ====");
+        System.out.println("==== Extrato da Conta Poupanca ====");
         super.imprimirCorpoDoExtrato();
     }
 }

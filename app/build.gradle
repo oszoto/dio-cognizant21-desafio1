@@ -32,5 +32,5 @@ test {
 
 application {
     // Define the main class for the application.
-    mainClass = 'dio.cognizant21.desafio1.Banco'
+    mainClass = 'dio.cognizant21.desafio1.Main'
 }

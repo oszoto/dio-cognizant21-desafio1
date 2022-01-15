@@ -8,6 +8,10 @@ public class Cliente {
     private String nome;
     private List<Conta> contas;
 
+    public String getNome() {
+        return nome;
+    }
+
     public Cliente(String nome) {
         this.nome = nome;
         this.contas = new LinkedList<Conta>();
@@ -29,13 +33,11 @@ public class Cliente {
         contas.add(new ContaCorrente(nome));
     };
 
-    public boolean fecharContaCorrente() {
-        return true;
+    public void abrirContaPoupanca() {
+        contas.add(new ContaPoupanca(nome));
     };
 
-    public void abrirContaPoupanca() {};
-
-    public boolean fecharContaPoupanca() {
-        return true;
+    public boolean fecharConta(int numero, int agencia) {
+        return contas.remove(encontrarConta(numero, agencia));
     };
 }
