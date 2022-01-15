@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class BancoTest {
-    Banco banco = new Banco("Teste");
+    Banco banco;
 
     @BeforeEach
     void setUp() {
