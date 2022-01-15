@@ -9,15 +9,15 @@ public class Banco {
     public Banco(String nome) {
         this.setNome(nome);
         this.clientes = new HashMap<String, Cliente>();
-    }
+    };
 
     public String getNome() {
         return nome;
-    }
+    };
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
+    };
 
     public boolean cadastrarCliente(String nomeDoCliente) {
         if(this.clientes.containsKey(nomeDoCliente)) {
@@ -26,7 +26,7 @@ public class Banco {
             this.clientes.put(nomeDoCliente, new Cliente(nomeDoCliente));
             return true;
         }
-    }
+    };
 
     public boolean descadastrarCliente(String nomeDoCliente) {
         if(this.clientes.containsKey(nomeDoCliente)) {
@@ -35,5 +35,13 @@ public class Banco {
         } else {
             return false;
         }
-    }
+    };
+
+    public Cliente encontrarCliente(String nomeDoCliente) {
+        if (this.clientes.containsKey(nomeDoCliente)) {
+            return clientes.get(nomeDoCliente);
+        } else {
+            return null;
+        }
+    };
 }

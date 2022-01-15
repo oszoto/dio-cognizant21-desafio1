@@ -32,9 +32,13 @@ public class Conta {
         return this.saldo;
     }
 
+    public List<String> getExtrato() {
+        return this.extrato;
+    }
+
     protected void logTransacao(double valor, char sinal) {
         if (sinal == '+' || sinal == '-') {
-            String mensagem = String.format("%c %.2f", sinal, valor);
+            String mensagem = String.format("%c R$ %.2f", sinal, valor);
             this.extrato.add(mensagem);
         }
     };
@@ -43,8 +47,13 @@ public class Conta {
         this.extrato.forEach((String transacao) -> {
             System.out.println(transacao);
         });
-        System.out.println("----------\nSaldo da conta = " + this.saldo);
+        System.out.printf("----------\nSaldo da conta = R$ %.2f\n", this.saldo);
     };
+
+    public void imprimirExtrato() {
+        System.out.println("==== Extrato da Conta ====");
+        this.imprimirCorpoDoExtrato();
+    }
 
     public void depositar (double valor) {
         this.saldo += valor;
@@ -52,7 +61,7 @@ public class Conta {
     };
 
     public boolean sacar(double valor) {
-        if(this.saldo > valor) {
+        if(this.saldo >= valor) {
             this.saldo -= valor;
             this.logTransacao(valor, '-');
             return true;
@@ -62,7 +71,7 @@ public class Conta {
     };
 
     public boolean transferir(double valor, Conta contaDestino) {
-        if (this.saldo > valor && contaDestino != null) {
+        if (this.saldo >= valor && contaDestino != null) {
             this.sacar(valor);
             contaDestino.depositar(valor);
             return true;
